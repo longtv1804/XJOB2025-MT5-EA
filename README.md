@@ -1,0 +1,2 @@
+# XJOB2025-MT5-EA
+REPO for MT5/EA xjob
