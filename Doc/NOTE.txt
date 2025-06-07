@@ -1,0 +1,8 @@
+TODO:
+	+ Tạo design tổng thể
+	+ Tạo code demo/test for server
+	+ Tạo code demo cho EA/Service
+		+ get lệnh from server
+		+ đồng bộ lệnh lên server
+		+ đặt mua/bán lệnh lên MT5
+		+ cancel 1 lệnh
