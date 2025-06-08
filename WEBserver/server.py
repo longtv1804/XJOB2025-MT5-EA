@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 import time
+import random
 
 app = Flask(__name__)
 
@@ -15,6 +16,21 @@ def websocket_sim():
 		"message": f"Hello from account {account_id}",
 		"timestamp": time.time()
 	})
+
+@app.route('/data', methods=['GET'])
+def get_random_json():
+	data = {
+		"JsonVersion": 1.0,
+		"ClientId": random.randint(1000, 9999),
+		"Cmd": {
+			"CmdType": random.randint(1, 3),
+			"TokenId": random.randint(100, 999),
+			"Status": random.choice([0, 1]),
+			"Volume": random.randint(1000, 10000),
+			"Price": round(random.uniform(10, 100), 2)
+		}
+	}
+	return jsonify(data)
 
 @app.route('/echo', methods=['POST'])
 def echo():
