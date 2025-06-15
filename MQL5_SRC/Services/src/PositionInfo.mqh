@@ -26,17 +26,30 @@
 // #import
 //+------------------------------------------------------------------+
 
-class CmdInfo
+class PositionInfo
 {
 public:
-   int CmdType;
-   int TokenId;
-   int Status;
-   int Volume;
-   double Price;
+   int      mTokenId;
+   int      mPosType;
+   string   mCode;
+   int      mStatus;
+   int      mVolume;
+   double   mPrice;
    
    void PrintInfo()
    {
-      Print("-> CMD = CmdType: ", CmdType, " TokenId: ", TokenId, " Status: ", Status, " Volume: ", Volume, " Price: ", Price);
+      Print("-> PositionInfo[PosType: ", mPosType, " TokenId: ", mTokenId, " Code:", mCode, " Status: ", mStatus, " Volume: ", mVolume, " Price: ", mPrice, "]");
+   }
+   
+   string ToJson ()
+   {
+      string ret;
+      ret   =    "{\"TokenId\":"    + mTokenId   + ",";
+      ret   +=    "\"PosType\":"    + mPosType   + ",";
+      ret   +=    "\"Code\":\""     + mCode      + "\",";
+      ret   +=    "\"Status\":"     + mStatus    + ",";
+      ret   +=    "\"Volume\":"     + mVolume    + ",";
+      ret   +=    "\"Price\":"      + mPrice     + "}";
+      return ret;
    }
 };
