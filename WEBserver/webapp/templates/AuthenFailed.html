@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lỗi đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdf0f0;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .box {
+            background: white;
+            border: 1px solid #ffcccc;
+            display: inline-block;
+            padding: 30px 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ffdada;
+        }
+        .error {
+            color: red;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="error">❌ {% if error %}{{ error }}{% endif %}</div>
+        <a href="/login" class="button">Quay lại đăng nhập</a>
+    </div>
+</body>
+</html>

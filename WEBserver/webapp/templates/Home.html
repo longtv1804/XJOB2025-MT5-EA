@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.btn-link {
+		border:none; background:none; padding:0;
+		color:blue; text-decoration:underline;
+		cursor:pointer;
+		}
+	</style>
+	<title>Home</title>
+</head>
+<body>
+    <h2>Chào, {{ username }}</h2>
+    <p>Session ID của bạn: <strong>{{ token }}</strong></p>
+
+    <p>Dữ liệu API (xác thực bằng query string):</p>
+    <button onclick="fetchData()">Lấy dữ liệu</button>
+    <pre id="result"></pre>
+
+	<form action="/logout" method="post">
+		<button type="submit" class="btn-link">Logout</button>
+	</form>
+    <script>
+        const username = "{{ username }}";
+        const session_id = "{{ token }}";
+
+        function fetchData() {
+            fetch(`/api/data?username=${username}&session_id=${session_id}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+                });
+        }
+    </script>
+</body>
+</html>
